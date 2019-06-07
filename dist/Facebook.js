@@ -32,7 +32,8 @@ class Facebook {
       xfbml: false,
       language: 'en_US',
       frictionlessRequests: false,
-      debug: false
+      debug: false,
+      chatSupport: false
     }, options);
 
     if (!this.options.appId) {
@@ -61,9 +62,10 @@ class Facebook {
               {
           domain,
           language,
-          debug
+          debug,
+          chatSupport
         } = _this$options,
-              restOptions = (0, _objectWithoutProperties2.default)(_this$options, ["domain", "language", "debug"]);
+              restOptions = (0, _objectWithoutProperties2.default)(_this$options, ["domain", "language", "debug", "chatSupport"]);
 
         window.fbAsyncInit = () => {
           window.FB.init({
@@ -85,7 +87,7 @@ class Facebook {
         js.id = 'facebook-jssdk';
         js.async = true;
         js.defer = true;
-        js.src = `https://${domain}/${language}/sdk${debug ? '/debug' : ''}/xfbml.customerchat.js`;
+        js.src = `https://${domain}/${language}/sdk${chatSupport ? '/xfbml.customerchat' : ''}${debug ? '/debug' : ''}.js`;
         window.document.body.appendChild(js);
       });
       return _this.loadingPromise;

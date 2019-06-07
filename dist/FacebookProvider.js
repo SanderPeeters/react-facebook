@@ -59,7 +59,8 @@ class Facebook extends _react.Component {
           language,
           frictionlessRequests,
           wait,
-          debug
+          debug,
+          chatSupport
         } = _this.props;
         api = new _Facebook.default({
           domain,
@@ -71,7 +72,8 @@ class Facebook extends _react.Component {
           language,
           frictionlessRequests,
           wait,
-          debug
+          debug,
+          chatSupport
         });
       }
 
@@ -132,6 +134,7 @@ exports.default = Facebook;
   domain: 'connect.facebook.net',
   children: undefined,
   wait: false,
-  debug: false
+  debug: false,
+  chatSupport: false
 });
 //# sourceMappingURL=FacebookProvider.js.map
